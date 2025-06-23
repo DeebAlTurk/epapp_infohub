@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Epidemic and Pandemic Preparedness Information Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+    <style>
+        :root {
+            --color-base-100: oklch(98% 0 0);
+            --color-base-200: oklch(95% 0.001 106.423);
+            --color-base-300: oklch(90% 0.002 247.839);
+            --color-base-content: #092140;
+            --color-primary: #092140;
+            --color-primary-content: oklch(98% 0.002 247.839);
+            --color-secondary: #2398d6;
+            --color-secondary-content: oklch(98% 0.003 247.858);
+            --color-accent: #092140;
+            --color-accent-content: oklch(98% 0 0);
+            --color-neutral: oklch(20% 0 0);
+            --color-neutral-content: oklch(98% 0 0);
+            --color-info: oklch(71% 0.143 215.221);
+            --color-info-content: oklch(98% 0.019 200.873);
+            --color-success: oklch(76% 0.233 130.85);
+            --color-success-content: oklch(98% 0.031 120.757);
+            --color-warning: oklch(76% 0.188 70.08);
+            --color-warning-content: oklch(98% 0.022 95.277);
+            --color-error: oklch(63% 0.237 25.331);
+            --color-error-content: oklch(97% 0.013 17.38);
+            --radius-selector: 0.5rem;
+            --radius-field: 0.5rem;
+            --radius-box: 0.5rem;
+            --size-selector: 0.25rem;
+            --size-field: 0.25rem;
+            --border: 1px;
+            --depth: 1;
+            --noise: 1;
+        }
+    </style>
+</head>
+<body>
+<div id="smooth-wrapper" >
+    <div id="smooth-content">
+        <div class="bg-no-repeat bg-primary bg-center bg-cover py-8" style="background-image:url('https://media-ghi.ghi.aub.edu.lb/revamp/wp-content/uploads/2025/06/epapp-info-hub-bg.png')">
+            <h1 class="text-2xl  md:text-3xl font-bold text-white p-6 text-center">
+                Epidemic and Pandemic Preparedness<br />Information Hub
+            </h1>
+        </div>
+
+        <div class="flex flex-col md:flex-row p-6 gap-6 max-w-screen-2xl mx-auto">
+
+            <!-- Sidebar Filters -->
+            <div id="filters" class="md:w-1/4 space-y-4">
+                <div class="form-control">
+                    <label class="label mb-2">
+                        <span class="label-text font-semibold">Sort By</span>
+                    </label>
+                    <select class="select select-bordered w-full">
+                        <option disabled selected>Choose option</option>
+                        <option>Date</option>
+                        <option>Title</option>
+                        <option>Author</option>
+                    </select>
+                </div>
+
+                <div class="form-control">
+                    <input type="text" placeholder="Search keywords" class="input input-bordered w-full " />
+                </div>
+
+                <div class="collapse collapse-arrow bg-base-200">
+                    <input type="checkbox" />
+                    <div class="collapse-title font-medium">Country</div>
+                    <div class="collapse-content flex flex-row gap-2 flex-wrap">
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Algeria</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Bahrain</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Djibouti</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Egypt</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Iraq</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Jordan</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Kuwait</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Lebanon</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Libya</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Morocco</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Oman</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Palestine</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Qatar</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Syria</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Tunisia</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Yemen</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">UAE</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">KSA</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+
+                    </div>
+                </div>
+
+                <div class="collapse collapse-arrow bg-base-200 ">
+                    <input type="checkbox" />
+                    <div class="collapse-title font-medium">Format</div>
+                    <div class="collapse-content flex flex-row gap-2 flex-wrap">
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Guid</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Report</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Case Study</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Manual</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Data Sets</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                    </div>
+                </div>
+
+                <div class="collapse collapse-arrow bg-base-200">
+                    <input type="checkbox" />
+                    <div class="collapse-title font-medium">Language</div>
+                    <div class="collapse-content flex flex-row gap-2 flex-wrap">
+                        <label class="label cursor-pointer">
+                            <span class="label-text">English</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Arabic</span>
+                            <input type="checkbox" class="checkbox" />
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Document Cards Section -->
+            <div id="results" class="md:w-3/4 space-y-4">
+                <p class="text-gray-600 font-semibold mb-2">Showing X result(s)</p>
+
+                <!-- Card -->
+                <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4 mb-[70px]">
+                    <!-- Repeat this block for each document -->
+
+                    <div class="relative group card bg-transparent shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <div class="flex w-80 flex-col gap-4 absolute top-10 left-5">
+                            <div class="skeleton h-4 w-40"></div>
+                            <div class="skeleton h-4 w-0  sm:w-70 2xl:w-78 "></div>
+                            <div class="skeleton h-4 w-60 sm:w-90 2xl:w-78  hidden 2xl:block"></div>
+                        </div>
+                    </div>
+
+                    <div class="relative skeleton blur-xs pointer-events-none group card shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group card bg-white shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
+                        <!-- Animated top border -->
+                        <div class="absolute top-0 left-0 w-full h-[5px] pointer-events-none">
+                            <span class=" block h-full bg-secondary origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out"></span>
+                        </div>
+
+
+                        <div class="card-body">
+                            <h2 class="card-title text-lg font-semibold">Title of Document</h2>
+                            <div class="flex flex-wrap gap-2 mt-2">
+      <span class="badge badge-outline text-sm">
+        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414a2 2 0 00-.586-1.414l-2.414-2.414A2 2 0 0010.586 2H5z"/>
+        </svg>
+        Format
+      </span>
+                                <span class="badge badge-outline text-sm">🌐 Language</span>
+                                <span class="badge badge-outline text-sm">👤 Authors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Card -->
+                    <!-- Repeat as needed... -->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="dock md:hidden">
+
+    <button onclick="gsap.to(window, { duration: 1.5,scrollTo: '#filters'}); ">
+        <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+        </svg>
+        <span class="dock-label">Filters</span>
+    </button>
+    <button onclick="gsap.to(window, { duration: 1.5, scrollTo: '#results'}); " >
+        <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z" />
+        </svg>
+
+        <span class="dock-label">Results</span>
+    </button>
+
+    <button >
+        <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+        </svg>
+        <span class="dock-label">Reset Filters</span>
+    </button>
+</div>
+
+<script>
+    // Initialize GSAP ScrollSmoother for smooth scrolling
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+    // Create the smooth scroller
+    let smoother = ScrollSmoother.create({
+        wrapper: "#smooth-wrapper",
+        content: "#smooth-content",
+        smooth: 2, // Adjust the smoothness (higher = smoother)
+        effects: true, // Enable effects for parallax elements
+        normalizeScroll: true, // Prevents jarring scroll behavior in some browsers
+        ignoreMobileResize: true, // Helps with mobile performance
+        smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
+
+    });
+
+
+</script>
+
+</body>
+
+</html>
